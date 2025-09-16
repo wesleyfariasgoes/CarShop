@@ -12,7 +12,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,16 +31,18 @@ import com.wfghc.carshop.R
 
 @Composable
 @Preview
-fun IntroScreen() {
+fun IntroScreen(navToMain: () -> Unit={}) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
     ) {
+        val scroll = rememberScrollState()
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 48.dp, bottom = 32.dp),
+                .padding(top = 28.dp, bottom = 32.dp)
+                .verticalScroll(scroll),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column {
@@ -44,7 +50,7 @@ fun IntroScreen() {
                     text = "Easy Way to buy\n your dream car",
                     color = Color.White,
                     modifier = Modifier
-                        .padding(start = 24.dp)
+                        .padding(horizontal = 24.dp)
                         .statusBarsPadding(),
                     fontSize = 48.sp,
                     fontWeight = FontWeight.Bold
@@ -52,15 +58,11 @@ fun IntroScreen() {
                 Spacer(modifier = Modifier.height(height = 24.dp))
                 Text(
                     text = "Lorem Ipsum is simply dummy text " +
-                            "of the printing and typesetting industry. \n" +
-                            "Lorem Ipsum has been the industry's standard dummy text ever since \n" +
-                            "the 1500s, when an unknown printer took a galley of type and scrambled\n it to " +
-                            "make a type specimen book. It has survived not only five centuries, but also\n " +
-                            "the leap into electronic typesetting, remaining essentially unchanged. ",
+                            "of the printing and typesetting industry." +
+                            "Lorem Ipsum has been the industry's standard dummy text ever since ",
                     color = Color.White,
                     modifier = Modifier
-                        .padding(horizontal = 24.dp)
-                        .statusBarsPadding(),
+                        .padding(horizontal = 24.dp),
                     fontSize = 14.sp,
                     lineHeight = 24.sp
                 )
@@ -68,25 +70,26 @@ fun IntroScreen() {
             Column {
                 Image(
                     painter = painterResource(id = R.drawable.intro_car),
-                    contentDescription = "Car",
+                    contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .heightIn(min = 200.dp)
                 )
                 Spacer(modifier = Modifier.height(height = 32.dp))
-
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = navToMain,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(height = 56.dp)
                         .padding(horizontal = 24.dp)
-
+                        .height(height = 60.dp),
+                    shape = RoundedCornerShape(size = 50.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.White,
+                        contentColor = Color.Black
+                    )
                 ) {
-                    Text(text = "Iniciar",
-                        color = Color.White,
-                        fontSize = 16.sp,
+                    Text(text = "Get Started",
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Bold)
                 }
             }
