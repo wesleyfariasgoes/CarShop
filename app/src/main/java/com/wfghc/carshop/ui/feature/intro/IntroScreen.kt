@@ -52,7 +52,7 @@ fun IntroScreen(navToMain: () -> Unit={}) {
                     modifier = Modifier
                         .padding(horizontal = 24.dp)
                         .statusBarsPadding(),
-                    fontSize = 48.sp,
+                    fontSize = 40.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(height = 24.dp))
