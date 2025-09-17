@@ -5,6 +5,5 @@
 <img src="https://github.com/wesleyfariasgoes/images/blob/main/Screenshot_20250917_101948.png" width="210">
 <img src="https://github.com/wesleyfariasgoes/images/blob/main/Screenshot_20250917_102015.png" width="210">
 
-App de exibição de carros
-Descrição
-Este projeto é um aplicativo Android simples que feito com Jetpeck compose.
+App de exibição de carros: 
+Este projeto é um aplicativo Android simples, utilizando Jetpeck compose.
